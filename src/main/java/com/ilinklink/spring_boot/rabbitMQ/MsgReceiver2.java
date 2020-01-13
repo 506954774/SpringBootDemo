@@ -22,7 +22,7 @@ public class MsgReceiver2 {
 
     @RabbitHandler
     public void process(String content) {
-        log .info(LOGGER_PREFIX+"rabbitMQ,"+"MsgReceiver2,接收处理队列A当中的消息： " + content);
+        log .info(LOGGER_PREFIX+"rabbitMQ,"+"MsgReceiver2,接收处理队列B当中的消息： " + content);
     }
 
 }

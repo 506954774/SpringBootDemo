@@ -230,6 +230,9 @@ public class MemberServiceImpl extends BaseService implements MemberService {
 
     @Override
     public void sendMQ() throws AdminException {
-        MsgProducer.sendMsg("TEST");
+        for (int i = 0; i < 10 ; i++) {
+            MsgProducer.sendMsg("TEST");
+
+        }
     }
 }
