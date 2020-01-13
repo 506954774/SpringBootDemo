@@ -40,6 +40,7 @@ public class TestAction extends ServerExceptionHandler{
     public ResponseEntity sendByForgetPwd(@ApiParam(name = "tel", value = "手机号", required = true)
                                           @RequestParam(value = "tel") String tel) {
             return new ResponseEntity<>(true);
+
     }
 
     @ApiOperation(value = "查询用户是否存在", notes = "查询用户是否存在")
