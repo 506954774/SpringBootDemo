@@ -119,14 +119,16 @@ public class RabbitConfig {
 
     @Bean
     public Binding binding() {
+        //return BindingBuilder.bind(queueA()).to(fanoutExchange());
         return BindingBuilder.bind(queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
     }
    @Bean
     public Binding bindingB(){
+        //return BindingBuilder.bind(queueB()).to(fanoutExchange());
         return BindingBuilder.bind(queueB()).to(exchangeB()).with(RabbitConfig.ROUTINGKEY_B);
     }
 
-    //配置fanout_exchange
+   //配置fanout_exchange
     @Bean
     FanoutExchange fanoutExchange() {
         return new FanoutExchange(RabbitConfig.FANOUT_EXCHANGE);
