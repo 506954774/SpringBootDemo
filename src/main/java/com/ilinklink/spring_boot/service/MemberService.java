@@ -53,6 +53,28 @@ public interface MemberService {
      */
     List<String>  multiImport(HttpServletRequest request)throws AdminException;
 
+    /**
+     * 测试向消息队列发送消息
+     * @throws AdminException
+     */
     void sendMQ()throws AdminException;
+
+    /**
+     * 测试从hBASE读取数据
+     * @param table
+     * @param row
+     * @param cf
+     * @return
+     * @throws AdminException
+     */
+    String getValueFromHbase(String table,String row,String cf,String cfMapper)throws AdminException;
+
+    /**
+     * 往hbase里写入
+     * @param
+     * @param cfMapper
+     * @throws AdminException
+     */
+    void putValueFromHbase(String rowName,String qualifier ,String cfMapper)throws AdminException;
 
 }

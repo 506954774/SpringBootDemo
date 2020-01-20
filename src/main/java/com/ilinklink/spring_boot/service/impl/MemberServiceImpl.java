@@ -3,6 +3,7 @@ package com.ilinklink.spring_boot.service.impl;
 import com.ilinklink.spring_boot.ServerConstants;
 import com.ilinklink.spring_boot.exception.AdminErrorCode;
 import com.ilinklink.spring_boot.exception.AdminException;
+import com.ilinklink.spring_boot.hBase.JsonRowMapper;
 import com.ilinklink.spring_boot.mapper.MemberMapper;
 import com.ilinklink.spring_boot.model.JpushParams;
 import com.ilinklink.spring_boot.model.RedisGetParams;
@@ -13,8 +14,15 @@ import com.ilinklink.spring_boot.upload.FastDFSClient;
 import com.ilinklink.spring_boot.utils.RedisUtil;
 import com.ilinklink.spring_boot.web.ResponseEntity;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.hadoop.hbase.HbaseTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -51,12 +59,17 @@ public class MemberServiceImpl extends BaseService implements MemberService {
 
     private static final String MASTER_SECRET = "5a2aa9def491189d451ef8f4";
     private static final String APP_KEY = "411a51f9642b0b74a620bde3";
+    private static final String TABLE = "test";
+    private static final String COLUMN_FAMILY = "cf";
     @Autowired
     private MemberMapper memberMapper;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
     private  MsgProducer MsgProducer;
+
+    @Autowired
+    private HbaseTemplate hbaseTemplate;
 
     @Autowired
     private FastDFSClient fastDFSClient;
@@ -234,5 +247,30 @@ public class MemberServiceImpl extends BaseService implements MemberService {
             MsgProducer.sendMsg("TEST");
 
         }
+    }
+
+    @Override
+    public String getValueFromHbase(String tableName, String row, String cf,String mapper) throws AdminException {
+        String result=null;
+        try {
+            result=hbaseTemplate.get(tableName,row,cf,new JsonRowMapper(cf,mapper));
+            log.info(LOGGER_PREFIX+"getValueFromHbase(String tableName, String row, String cf,String mapper),result:"+result);
+        } catch (Exception e) {
+            log.warn(LOGGER_PREFIX+"getValueFromHbase(String tableName, String row, String cf,String mapper)异常:"+e);
+            throw new AdminException(AdminErrorCode.REQUEST_EXCEPTION, getMessage(AdminErrorCode.REQUEST_EXCEPTION));
+        }
+        return result;
+
+      /*  {
+            "cf": "cf",
+                "key": "b",
+                "row": "row2",
+                "table": "test"
+        }*/
+    }
+
+    @Override
+    public void putValueFromHbase(String rowName,String qualifier ,String cfMapper) throws AdminException {
+        hbaseTemplate.put(TABLE,rowName,COLUMN_FAMILY,qualifier,cfMapper.getBytes());
     }
 }

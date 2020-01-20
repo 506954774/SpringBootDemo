@@ -1,6 +1,8 @@
 package com.ilinklink.spring_boot.action;
 
 import com.ilinklink.spring_boot.exception.AdminException;
+import com.ilinklink.spring_boot.model.HbaseReadParams;
+import com.ilinklink.spring_boot.model.HbaseWriteParams;
 import com.ilinklink.spring_boot.model.JpushParams;
 import com.ilinklink.spring_boot.model.QueryMemberParams;
 import com.ilinklink.spring_boot.model.RedisGetParams;
@@ -127,4 +129,27 @@ public class TestAction extends ServerExceptionHandler{
         }
     }
 
+    @ApiOperation(value = "测试读取hbase的数据",  response = String.class, notes = "测试读取hbase的数据")
+    @PostMapping("/hbase_read")
+    public ResponseEntity hBaseRead(HttpServletRequest request,@RequestBody HbaseReadParams params) {
+        try {
+            String result=memberService.getValueFromHbase(params.getTable(),params.getRow(),params.getCf(),params.getKey());
+            ResponseEntity<String> responseEntity = new ResponseEntity<>(true);
+            responseEntity.setResult(result);
+            return responseEntity;
+        } catch (AdminException e) {
+            return new ResponseEntity<>(e.getErrorCode(), false, e.getMessage());
+        }
+    }
+
+    @ApiOperation(value = "测试写入hbase的数据",    notes = "测试写入hbase的数据")
+    @PostMapping("/hbase_write")
+    public ResponseEntity hBaseWrite( @RequestBody com.ilinklink.spring_boot.model.HbaseWriteParams params) {
+        try {
+            memberService.putValueFromHbase( params.getRow(),params.getQualifier(),params.getValue());
+            return new ResponseEntity<>(true);
+        } catch (AdminException e) {
+            return new ResponseEntity<>(e.getErrorCode(), false, e.getMessage());
+        }
+    }
 }
