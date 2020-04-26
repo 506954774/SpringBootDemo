@@ -76,5 +76,11 @@ public interface MemberService {
      * @throws AdminException
      */
     void putValueFromHbase(String rowName,String qualifier ,String cfMapper)throws AdminException;
+    /**
+     * 往hbase里写入
+     * @param
+     * @throws AdminException
+     */
+    void putValueFromHbase(String tableName, final String rowName, final String familyName, final String qualifier, final byte[] value)throws AdminException;
 
 }

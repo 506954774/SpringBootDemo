@@ -59,8 +59,8 @@ public class MemberServiceImpl extends BaseService implements MemberService {
 
     private static final String MASTER_SECRET = "5a2aa9def491189d451ef8f4";
     private static final String APP_KEY = "411a51f9642b0b74a620bde3";
-    private static final String TABLE = "test";
-    private static final String COLUMN_FAMILY = "cf";
+    public static final String TABLE = "test";
+    public static final String COLUMN_FAMILY = "cf";
     @Autowired
     private MemberMapper memberMapper;
     @Autowired
@@ -272,5 +272,10 @@ public class MemberServiceImpl extends BaseService implements MemberService {
     @Override
     public void putValueFromHbase(String rowName,String qualifier ,String cfMapper) throws AdminException {
         hbaseTemplate.put(TABLE,rowName,COLUMN_FAMILY,qualifier,cfMapper.getBytes());
+    }
+
+    @Override
+    public void putValueFromHbase(String tableName, String rowName, String familyName, String qualifier, byte[] value) throws AdminException {
+        hbaseTemplate.put( tableName,  rowName,  familyName,  qualifier,   value);
     }
 }

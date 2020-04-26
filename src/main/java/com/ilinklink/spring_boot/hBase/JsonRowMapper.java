@@ -19,9 +19,6 @@ import static com.ilinklink.spring_boot.ServerConstants.LOGGER_PREFIX;
 @Slf4j
 public class JsonRowMapper implements RowMapper<String> {
 
-    private static byte[] COLUMN_FAMILY = "cf".getBytes();
-    private static byte[] NAME = "a".getBytes();
-
     private String mColumnFamily;
     private String mName;
 

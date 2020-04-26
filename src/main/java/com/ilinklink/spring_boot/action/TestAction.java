@@ -8,6 +8,7 @@ import com.ilinklink.spring_boot.model.QueryMemberParams;
 import com.ilinklink.spring_boot.model.RedisGetParams;
 import com.ilinklink.spring_boot.model.RedisSetParams;
 import com.ilinklink.spring_boot.service.MemberService;
+import com.ilinklink.spring_boot.service.impl.MemberServiceImpl;
 import com.ilinklink.spring_boot.web.ResponseEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,11 +130,11 @@ public class TestAction extends ServerExceptionHandler{
         }
     }
 
-    @ApiOperation(value = "测试读取hbase的数据",  response = String.class, notes = "测试读取hbase的数据")
+    @ApiOperation(value = "测试读取hbase的test表里的数据",  response = String.class, notes = "测试读取hbase的数据")
     @PostMapping("/hbase_read")
     public ResponseEntity hBaseRead(HttpServletRequest request,@RequestBody HbaseReadParams params) {
         try {
-            String result=memberService.getValueFromHbase(params.getTable(),params.getRow(),params.getCf(),params.getKey());
+            String result=memberService.getValueFromHbase(MemberServiceImpl.TABLE,params.getRowName(),MemberServiceImpl.COLUMN_FAMILY,params.getQualifier());
             ResponseEntity<String> responseEntity = new ResponseEntity<>(true);
             responseEntity.setResult(result);
             return responseEntity;
@@ -142,11 +143,12 @@ public class TestAction extends ServerExceptionHandler{
         }
     }
 
-    @ApiOperation(value = "测试写入hbase的数据",    notes = "测试写入hbase的数据")
+    @ApiOperation(value = "测试写入hbase的test表的数据",    notes = "测试写入hbase的数据")
     @PostMapping("/hbase_write")
-    public ResponseEntity hBaseWrite( @RequestBody com.ilinklink.spring_boot.model.HbaseWriteParams params) {
+    public ResponseEntity hBaseWrite( @RequestBody com.ilinklink.spring_boot.model.HbaseInsertParams params) {
         try {
-            memberService.putValueFromHbase( params.getRow(),params.getQualifier(),params.getValue());
+            //memberService.putValueFromHbase( params.getRow(),params.getQualifier(),params.getValue());
+            memberService.putValueFromHbase(MemberServiceImpl.TABLE,params.getRowName(),MemberServiceImpl.COLUMN_FAMILY,params.getQualifier(),params.getValue().getBytes());
             return new ResponseEntity<>(true);
         } catch (AdminException e) {
             return new ResponseEntity<>(e.getErrorCode(), false, e.getMessage());

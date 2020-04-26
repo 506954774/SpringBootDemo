@@ -6,13 +6,18 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-
+/**
+ * HbaseReadAllParams
+ * 责任人:  Chuck
+ * 修改人： Chuck
+ * 创建/修改时间: 2020/4/24  10:27
+ * Copyright : 2014-2018 深圳令令科技有限公司-版权所有
+ **/
 @Data
-@ApiModel(" hbase 写入相关")
-public class HbaseWriteParams implements Serializable {
+@ApiModel("查询参数: 表明,列簇")
+public class HbaseReadAllParams implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
 
 
     @ApiModelProperty(value = "表名",required = true)
@@ -27,11 +32,6 @@ public class HbaseWriteParams implements Serializable {
     private String familyName;
     @ApiModelProperty(value = "列",required = true)
     private String qualifier;
-
-
-
-    @ApiModelProperty(value = "value",required = true)
-    private String value;
 
 
 }
