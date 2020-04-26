@@ -113,6 +113,8 @@ public class HbaseServiceImpl implements HbaseService {
                 @Override
                 public ArrayList<Gps>  extractData(ResultScanner resultScanner) throws Exception {
 
+
+
                     Iterator<Result> iterator = resultScanner.iterator();
 
                     while (iterator.hasNext()){
