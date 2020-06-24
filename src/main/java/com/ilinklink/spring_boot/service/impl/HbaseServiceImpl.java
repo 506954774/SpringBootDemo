@@ -209,6 +209,8 @@ public class HbaseServiceImpl implements HbaseService {
                 Thread.sleep(1);//休眠一毫秒,避免rowKey重复.实际情况不必如此
 
                 String json= JSON.toJSONString(gpsBean);
+                log.info("json:{}",json);
+
                 Put put=new Put(Bytes.toBytes(rowKey));
                 put.setWriteToWAL(false);//hbase端不打印日志,但是这样做出问题后无法修复数据
                 put.addColumn(Bytes.toBytes(COLUMN_FAMILY),Bytes.toBytes(QUALIFIER),Bytes.toBytes(json));
@@ -228,7 +230,7 @@ public class HbaseServiceImpl implements HbaseService {
         table.close();
         conn.close();
 
-        log.error("1万条数据,耗时:{}",System.currentTimeMillis()-time);
+        log.error("{}条数据,耗时:{}",gps.size(),System.currentTimeMillis()-time);
 
     }
 

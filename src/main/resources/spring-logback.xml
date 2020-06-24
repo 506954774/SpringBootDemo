@@ -34,7 +34,7 @@
         </encoder>
         <!-- 滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/mnt/logs/spring_boot/debug.%d.log</fileNamePattern>
+            <fileNamePattern>/mnt/logs/spring_boot_demo/debug.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -54,7 +54,7 @@
         </encoder>
         <!-- 滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/mnt/logs/spring_boot/info.%d.log</fileNamePattern>
+            <fileNamePattern>/mnt/logs/spring_boot_demo/info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -74,7 +74,7 @@
         </encoder>
         <!-- 滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/mnt/logs/spring_boot/warn.%d.log</fileNamePattern>
+            <fileNamePattern>/mnt/logs/spring_boot_demo/warn.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -89,7 +89,7 @@
         </encoder>
         <!-- 滚动策略 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/mnt/logs/spring_boot/error.%d.log</fileNamePattern>
+            <fileNamePattern>/mnt/logs/spring_boot_demo/error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 

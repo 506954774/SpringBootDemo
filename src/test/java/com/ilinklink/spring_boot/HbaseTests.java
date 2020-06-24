@@ -29,7 +29,7 @@ class HbaseTests {
 
         Random random=new Random();
         List<Gps> gpsList=new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 10; i++) {
             Gps gps=new Gps();
             gps.setLat(22.00+(0.0003*i));
             gps.setLon(123.00+(0.0003*i));
@@ -38,7 +38,7 @@ class HbaseTests {
             gpsList.add(gps);
         }
         try {
-            hbaseService.insertGps("3",gpsList);
+            hbaseService.insertGps("1",gpsList);
         } catch (AdminException e) {
             log.error("error:"+e);
         }

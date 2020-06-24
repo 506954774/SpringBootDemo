@@ -36,24 +36,24 @@ spring.application.name=\uFFFD\uFFFD\uFFFD\uFFFD\u02B1\uFFFD\uFFFD\uFFFD\uFFFD\u
 server.port=3456
 server.servlet-path=/
 spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
-#spring.datasource.url=jdbc:mysql://127.0.0.1:13306/test?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=UTC
-#spring.datasource.username=root
-#spring.datasource.password=Lp19900908!
-spring.datasource.url=jdbc:mysql://127.0.0.1:13306/test?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=UTC
-spring.datasource.username=test
-spring.datasource.password=123456
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=Lp19900908!
+#spring.datasource.url=jdbc:mysql://192.168.0.45:3306/test?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=UTC
+#spring.datasource.username=admin
+#spring.datasource.password=123456
 spring.datasource.driverClassName=com.mysql.jdbc.Driver
 spring.datasource.max-active=20
 spring.datasource.max-wait=8
 spring.datasource.min-idle=8
 spring.datasource.initial-size=10
 mybatis.config-location=classpath:META-INF/mybatis.xml
-#spring.redis.host=39.107.40.76
-#spring.redis.port=6379
-#spring.redis.password=123456
-spring.redis.host=127.0.0.1
+spring.redis.host=39.107.40.76
 spring.redis.port=6379
 spring.redis.password=123456
+#spring.redis.host=127.0.0.1
+#spring.redis.port=6379
+#spring.redis.password=123456
 spring.redis.database=0
 spring.redis.lettuce.pool.max-active=32
 spring.redis.lettuce.pool.max-wait=300ms
@@ -64,11 +64,7 @@ spring.redis.lettuce.pool.min-idle=8
 dfs.client.conf=C:/root/client.conf
 #dfs.client.conf=/usr/local/src/fastdfs/conf/client.conf
 #dfs.client.conf=/etc/fdfs/client.conf
-
-#dfs.client.conf=/usr/tmp/client.conf
-#dfs.client.host=39.107.40.76:8089
-#dfs.client.host=localhost:38089
-dfs.client.host=39.107.40.76:38089
+dfs.client.host=39.107.40.76:8089
 #\uFFFD\uFFFD\uFFFD\uFFFD\u03F4\uFFFD\uFFFD\u013C\uFFFD\uFFFD\u0134\uFFFD\u0421\uFFFD\uFFFD\uFFFD\uFFFD\u03BBM
 dfs.max.size=10
 
@@ -79,6 +75,5 @@ spring.rabbitmq.username=chuck
 spring.rabbitmq.password=123456
 
 hbase.zookeeper.quorum=39.107.40.76
-#hbase.zookeeper.quorum=192.168.0.145
 hbase.zookeeper.property.clientPort=2181
 zookeeper.znode.parent=/hbase
