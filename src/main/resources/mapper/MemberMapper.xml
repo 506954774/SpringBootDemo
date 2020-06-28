@@ -12,6 +12,15 @@
         pt_member_info
         WHERE Member_ID = #{memberId} OR Member_Account=#{memberId}
     </select>
+    <!--查询用户 -->
+    <select id="queryUser" resultType="com.ilinklink.spring_boot.aop.UserInfo">
+        SELECT
+        Member_Nickname   userName ,
+        Member_ID   userId
+        FROM
+        pt_member_info
+        WHERE Member_ID = #{memberId} OR Member_Account=#{memberId}
+    </select>
 
 
 </mapper>

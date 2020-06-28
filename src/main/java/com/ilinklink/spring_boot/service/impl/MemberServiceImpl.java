@@ -1,6 +1,7 @@
 package com.ilinklink.spring_boot.service.impl;
 
 import com.ilinklink.spring_boot.ServerConstants;
+import com.ilinklink.spring_boot.aop.UserInfo;
 import com.ilinklink.spring_boot.exception.AdminErrorCode;
 import com.ilinklink.spring_boot.exception.AdminException;
 import com.ilinklink.spring_boot.hBase.JsonRowMapper;
@@ -31,6 +32,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import cn.jiguang.common.ClientConfig;
@@ -61,7 +63,7 @@ public class MemberServiceImpl extends BaseService implements MemberService {
     private static final String APP_KEY = "411a51f9642b0b74a620bde3";
     public static final String TABLE = "test";
     public static final String COLUMN_FAMILY = "cf";
-    @Autowired
+    @Resource
     private MemberMapper memberMapper;
     @Autowired
     private RedisUtil redisUtil;
@@ -77,6 +79,24 @@ public class MemberServiceImpl extends BaseService implements MemberService {
     private String dfsHost;
     @Value("${dfs.max.size}")
     private int maxSize;
+
+
+
+    @Override
+    public UserInfo  queryUser(String memberId) throws AdminException {
+        if (memberId == null || "".equals(memberId)) {
+            log.warn(LOGGER_PREFIX+"参数为空!", "");
+            throw new AdminException(AdminErrorCode.PARAMS_EMPTY, getMessage(AdminErrorCode.PARAMS_EMPTY));
+
+        }
+        // return true;
+        try {
+            return memberMapper.queryUser(memberId);
+        } catch (Exception e) {
+            log.error(LOGGER_PREFIX+"查询用户名,操作异常!", e);
+            throw e;
+        }
+    }
 
     @Override
     public boolean exist(String memberId) throws AdminException {

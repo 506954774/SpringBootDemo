@@ -1,5 +1,7 @@
 package com.ilinklink.spring_boot.mapper;
 
+import com.ilinklink.spring_boot.aop.UserInfo;
+
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -15,6 +17,13 @@ public interface MemberMapper {
      * @return
      */
     Integer queryMemberExist(@Param("memberId") String memberId);
+
+    /**
+     * 查询用户名
+     * @param memberId
+     * @return
+     */
+    UserInfo queryUser(@Param("memberId") String memberId);
 
 
 }

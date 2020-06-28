@@ -1,5 +1,6 @@
 package com.ilinklink.spring_boot.service;
 
+import com.ilinklink.spring_boot.aop.UserInfo;
 import com.ilinklink.spring_boot.exception.AdminException;
 import com.ilinklink.spring_boot.model.JpushParams;
 import com.ilinklink.spring_boot.model.RedisGetParams;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletRequest;
  **/
 public interface MemberService {
 
+
+    UserInfo queryUser(String memberId) throws AdminException;
 
     boolean exist(String memberId) throws AdminException;
 
