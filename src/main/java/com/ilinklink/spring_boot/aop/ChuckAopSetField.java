@@ -54,13 +54,15 @@ public class ChuckAopSetField implements ApplicationContextAware {
                 Field paramField=clazz.getDeclaredField(sv.paramField());
                 paramField.setAccessible(true);
 
-                //获取调用哪个方法
-                Method method=sv.beanClass().getMethod(sv.method(),paramField.getType());
-
                 //获取入参，从对象里取出入参值
                 Object paramValue=paramField.get(ret);
 
+                //获取调用
+                    // 哪个方法
+                Method method=sv.beanClass().getMethod(sv.method(),paramField.getType());
+
                 if(paramValue!=null){
+
                     Object value=method.invoke(bean,paramValue);//反射调用dao层的方法:调用MemberService的queryUser（id）方法
 
                     if(value!=null){//取出user的userName赋值给order的customerName
