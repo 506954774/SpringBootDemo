@@ -85,4 +85,26 @@ public class AopServiceImpl extends BaseService implements AopService {
 
         return vo;
     }
+
+    @Override
+    @NeedSetVaule
+    public List<OrderVo> queryOrders() throws AdminException {
+
+        ArrayList<OrderVo> result=new ArrayList<>();
+
+
+        String[] ids=new String[]{"13037149452","15262592514"};
+
+        for (int i = 0; i < 5; i++) {
+            OrderVo vo=new OrderVo();
+            vo.setOrderId("1");
+            vo.setUserId(ids[i%2]);
+
+            result.add(vo);
+        }
+        //vo.setCustmerName(""); //这一步不手动做，使用aop实现：
+        // 框架在这之后，会拿到注解里的dao层bean（MemberService），参数(userId),调用查询user的方法，并赋值给custmerName字段
+
+        return result;
+    }
 }

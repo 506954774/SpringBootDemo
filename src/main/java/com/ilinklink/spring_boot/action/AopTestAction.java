@@ -56,5 +56,21 @@ public class AopTestAction extends ServerExceptionHandler{
 
 
 
+    @ApiOperation(value = "测试aop 集合的操作", notes = "测试aop 集合的操作" ,response = OrderVo.class)
+    @GetMapping("/test/list")
+    public ResponseEntity aopList() {
+
+
+        try {
+            ResponseEntity<List<OrderVo>> responseEntity = new ResponseEntity<>(true);
+            responseEntity.setResult(aopService.queryOrders());
+            return responseEntity;
+        } catch (AdminException e) {
+            return new ResponseEntity<>(e.getErrorCode(), false, e.getMessage());
+        }
+
+    }
+
+
 
 }

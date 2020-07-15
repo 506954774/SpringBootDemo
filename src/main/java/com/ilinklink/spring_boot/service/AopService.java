@@ -3,6 +3,8 @@ package com.ilinklink.spring_boot.service;
 import com.ilinklink.spring_boot.aop.OrderVo;
 import com.ilinklink.spring_boot.exception.AdminException;
 
+import java.util.List;
+
 /**
  * AopService
  * 责任人:  Chuck
@@ -13,4 +15,6 @@ import com.ilinklink.spring_boot.exception.AdminException;
 public interface AopService {
 
     OrderVo query() throws AdminException;
+
+    List<OrderVo> queryOrders() throws AdminException;
 }
