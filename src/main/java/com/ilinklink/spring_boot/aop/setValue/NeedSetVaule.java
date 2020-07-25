@@ -1,4 +1,4 @@
-package com.ilinklink.spring_boot.aop;
+package com.ilinklink.spring_boot.aop.setValue;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,12 +13,8 @@ import java.lang.annotation.Target;
  * 创建/修改时间: 2020/6/28  17:32
  * Copyright : 2014-2015 深圳掌通宝科技有限公司-版权所有
  */
-@Target(ElementType.FIELD)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SetVaule {
+public @interface NeedSetVaule {
 
-    Class<?> beanClass();
-    String method();
-    String paramField();
-    String targetField();
 }
