@@ -112,6 +112,12 @@
             <version>v1.20</version>
         </dependency>
 
+        <!-- redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.6.5</version>
+        </dependency>
 
        <!-- 极光推送-->
         <dependency>
