@@ -3,29 +3,31 @@ package com.ilinklink.spring_boot;
 import com.ilinklink.spring_boot.exception.AdminException;
 import com.ilinklink.spring_boot.model.Gps;
 import com.ilinklink.spring_boot.service.HbaseService;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import org.junit.jupiter.api.Test;
+import java.util.*;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.TreeSet;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.annotation.Resource;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
-@SpringBootTest
-class HbaseTests {
+@SpringBootTest(classes= Application .class)
+@WebAppConfiguration
+@EnableScheduling
+@RunWith(SpringJUnit4ClassRunner.class)
+public class HbaseTests {
 
     @Resource
     private HbaseService hbaseService;
 
     @Test
-    void inser() {
+    public void inser() {
 
         Random random=new Random();
         List<Gps> gpsList=new ArrayList<>();
@@ -45,7 +47,7 @@ class HbaseTests {
     }
 
     @Test
-    void queryDate() {
+    public void queryDate() {
 
 
         try {
@@ -58,7 +60,7 @@ class HbaseTests {
     }
 
     @Test
-    void queryGpsList() {
+    public  void queryGpsList() {
 
         //1587537966495
         //1587710766495

@@ -164,6 +164,7 @@ public class HbaseServiceImpl implements HbaseService {
             }*/
 
 
+            //ps:当时这个没有测出问题,原因是没有休眠,导致system.currentTime一致了,导致覆盖了
            //批量插入
             batchPut(deviceId,gps);
 

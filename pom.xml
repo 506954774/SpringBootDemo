@@ -44,13 +44,12 @@
             </exclusions>
         </dependency>-->
 
-       <!-- 避免依赖冲突-->
+       <!-- hbase-start-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>16.0.1</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -72,7 +71,6 @@
             </exclusions>
         </dependency>
 
-
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
@@ -92,6 +90,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- hbase-end-->
 
 
 
