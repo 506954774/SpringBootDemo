@@ -1,11 +1,6 @@
 package com.ilinklink.spring_boot.sqlGenerate;
 
 
-import com.chuck.core.generator.Config;
-import com.chuck.core.generator.GeneratorStarter;
-
-import org.springframework.boot.context.config.ConfigFileApplicationListener;
-
 /**
  * Test
  * 责任人:  Chuck
@@ -29,10 +24,10 @@ public class Test {
         };
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
 
 
-        Config config=new Config();
+       /* Config config=new Config();
         config.setDaoPackage("com.ilinklink.spring_boot.sqlGenerate.dao");
         config.setUrl(url);
         config.setDriverName(driverName);
@@ -40,7 +35,7 @@ public class Test {
         config.setUserPwd(userPwd);
         config.setTableNames(tableNames);
 
-        GeneratorStarter.init(config);
+        GeneratorStarter.init(config);*/
 
 
     }

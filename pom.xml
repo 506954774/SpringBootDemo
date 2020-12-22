@@ -23,6 +23,7 @@
     <dependencies>
 
 
+
        <!-- hBase相关-->
        <!-- <dependency>
             <groupId>com.spring4all</groupId>
