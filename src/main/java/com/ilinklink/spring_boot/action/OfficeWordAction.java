@@ -43,16 +43,77 @@ public class OfficeWordAction extends ServerExceptionHandler{
              * @author Chuck
              **/
             String  content="<p style=\"text-align:center;\">\n" +
-                    "\t<b>&nbsp;<span style=\"font-size:24px;\">光明-指标word演示</span></b>\n" +
+                    "\t<b>&nbsp;<span style=\"font-size:24px;\">光明-指标word演示</span></b> \n" +
                     "</p>\n" +
                     "<p style=\"text-align:left;\">\n" +
-                    "\t<b><span style=\"color:#E53333;\">&nbsp; 1，第一个指标：八大行业</span></b>\n" +
+                    "\t<b><span style=\"color:#E53333;\">&nbsp; 1，第一个指标：八大行业</span></b> \n" +
                     "</p>\n" +
                     "<p>\n" +
                     "\t<b><span style=\"color:#009900;\">&nbsp; 2，第二个指标：增长率</span></b> \n" +
                     "</p>\n" +
                     "<p>\n" +
                     "\t<b><span style=\"color:#003399;\">&nbsp; 3，第三个指标：增长值</span></b> \n" +
+                    "</p>\n" +
+                    "<p>\n" +
+                    "\t<b><span style=\"color:#003399;\"><br />\n" +
+                    "\t<table style=\"width:100%;\" cellpadding=\"2\" cellspacing=\"0\" border=\"1\" bordercolor=\"#000000\">\n" +
+                    "\t\t<tbody>\n" +
+                    "\t\t\t<tr>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标1\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标4\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t</tr>\n" +
+                    "\t\t\t<tr>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标2\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标5\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t</tr>\n" +
+                    "\t\t\t<tr>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标3\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t指标6\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t\t<td>\n" +
+                    "\t\t\t\t\t<br />\n" +
+                    "\t\t\t\t</td>\n" +
+                    "\t\t\t</tr>\n" +
+                    "\t\t</tbody>\n" +
+                    "\t</table>\n" +
+                    "<br />\n" +
+                    "<br />\n" +
+                    "</span></b> \n" +
                     "</p>";
             // content=param.getContent();
 
