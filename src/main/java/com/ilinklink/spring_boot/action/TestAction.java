@@ -154,4 +154,6 @@ public class TestAction extends ServerExceptionHandler{
             return new ResponseEntity<>(e.getErrorCode(), false, e.getMessage());
         }
     }
+
+    // git config --global user.name "Chuck" $ git config --global user.email "506954774@qq.com"
 }
