@@ -17,6 +17,6 @@ public class CustomProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String param=args[0].toString();
-        return "来自代理，拼接，返回一个字符串["+param+"]";
+        return "来自动态代理的bean，拼接，返回一个字符串["+param+"]";
     }
 }

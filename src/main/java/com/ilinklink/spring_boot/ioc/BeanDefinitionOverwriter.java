@@ -8,9 +8,11 @@ import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
+import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.core.ResolvableType;
 import org.springframework.stereotype.Component;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -24,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class BeanDefinitionOverwriter implements BeanDefinitionRegistryPostProcessor {
 
+    @SneakyThrows
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
 
@@ -37,220 +40,14 @@ public class BeanDefinitionOverwriter implements BeanDefinitionRegistryPostProce
             }
         }
 
-        BeanDefinition proxyDefinitionClass=new BeanDefinition() {
-            @Override
-            public void setParentName(String s) {
 
-            }
-
-            @Override
-            public String getParentName() {
-                return null;
-            }
-
-            @Override
-            public void setBeanClassName(String s) {
-
-            }
-
-            @Override
-            public String getBeanClassName() {
-                return null;
-            }
-
-            @Override
-            public void setScope(String s) {
-
-            }
-
-            @Override
-            public String getScope() {
-                return null;
-            }
-
-            @Override
-            public void setLazyInit(boolean b) {
-
-            }
-
-            @Override
-            public boolean isLazyInit() {
-                return false;
-            }
-
-            @Override
-            public void setDependsOn(String... strings) {
-
-            }
-
-            @Override
-            public String[] getDependsOn() {
-                return new String[0];
-            }
-
-            @Override
-            public void setAutowireCandidate(boolean b) {
-
-            }
-
-            @Override
-            public boolean isAutowireCandidate() {
-                return true;
-            }
-
-            @Override
-            public void setPrimary(boolean b) {
-
-            }
-
-            @Override
-            public boolean isPrimary() {
-                return false;
-            }
-
-            @Override
-            public void setFactoryBeanName(String s) {
-
-            }
-
-            @Override
-            public String getFactoryBeanName() {
-               // return IocTestServiceBeanFactory.class.getName();
-                return null;
-            }
-
-            @Override
-            public void setFactoryMethodName(String s) {
-
-            }
-
-            @Override
-            public String getFactoryMethodName() {
-                //return "newInstance";
-                return null;
-            }
-
-            @Override
-            public ConstructorArgumentValues getConstructorArgumentValues() {
-               /* ConstructorArgumentValues result=new ConstructorArgumentValues();
-                result.addIndexedArgumentValue(0,String.class);
-                return result;*/
-                return null;
-
-            }
-
-            @Override
-            public MutablePropertyValues getPropertyValues() {
-                return null;
-            }
-
-            @Override
-            public void setInitMethodName(String s) {
-
-            }
-
-            @Override
-            public String getInitMethodName() {
-                return null;
-            }
-
-            @Override
-            public void setDestroyMethodName(String s) {
-
-            }
-
-            @Override
-            public String getDestroyMethodName() {
-                return null;
-            }
-
-            @Override
-            public void setRole(int i) {
-
-            }
-
-            @Override
-            public int getRole() {
-                return 0;
-            }
-
-            @Override
-            public void setDescription(String s) {
-
-            }
-
-            @Override
-            public String getDescription() {
-                return null;
-            }
-
-            @Override
-            public ResolvableType getResolvableType() {
-                return null;
-            }
-
-            @Override
-            public boolean isSingleton() {
-                return true;
-            }
-
-            @Override
-            public boolean isPrototype() {
-                return false;
-            }
-
-            @Override
-            public boolean isAbstract() {
-                return true;
-            }
-
-            @Override
-            public String getResourceDescription() {
-                return null;
-            }
-
-            @Override
-            public BeanDefinition getOriginatingBeanDefinition() {
-                return null;
-            }
-
-            @Override
-            public void setAttribute(String s, Object o) {
-
-            }
-
-            @Override
-            public Object getAttribute(String s) {
-                return null;
-            }
-
-            @Override
-            public Object removeAttribute(String s) {
-                return null;
-            }
-
-            @Override
-            public boolean hasAttribute(String s) {
-                return false;
-            }
-
-            @Override
-            public String[] attributeNames() {
-                return new String[0];
-            }
-        };
-
-        //添加到bean定义集合里，mybatis的mapper就是接口，使用此方式，添加到类定义集合里
-        beanDefinitionRegistry.registerBeanDefinition("iocTestService",proxyDefinitionClass);
-
-
-        BeanDefinitionBuilder b=BeanDefinitionBuilder.rootBeanDefinition(IocTestServiceImpl.class);
-        //beanDefinitionRegistry.registerBeanDefinition("iocTestService",b.getBeanDefinition());
+        //下面这个类定义，其实是个无效的类定义，因为它是一个接口，没有实例的接口。我们可以通过类实例化的后置处理器去构建bean的实例，这样就会直接使用我们提供的实例（动态代理），而不是框架的反射
+        BeanDefinitionBuilder b=BeanDefinitionBuilder.rootBeanDefinition(Class.forName("com.ilinklink.spring_boot.ioc.IocTestService").getClass());
+        beanDefinitionRegistry.registerBeanDefinition("iocTestService",b.getBeanDefinition());
 
 
         beanDefinitionNames=beanDefinitionRegistry.getBeanDefinitionNames();
-
-        log.info("BeanDefinitionOverwriter","注入灵魂");
+        log.info("BeanDefinitionOverwriter","注入灵魂!!!!");
 
     }
 
