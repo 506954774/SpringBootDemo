@@ -9,7 +9,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.plugin.util.UIUtil;
+//import sun.plugin.util.UIUtil;
 
 import java.util.Arrays;
 import java.util.UUID;
