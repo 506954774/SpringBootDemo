@@ -78,6 +78,7 @@ public class AopServiceImpl extends BaseService implements AopService {
         log.error("user:{}",memberMapper.queryUser("15262592514"));
 
         OrderVo vo=new OrderVo();
+        
         vo.setOrderId("1");
         vo.setUserId("15262592514");
         //vo.setCustmerName(""); //这一步不手动做，使用aop实现：
