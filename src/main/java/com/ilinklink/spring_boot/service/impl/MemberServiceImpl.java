@@ -67,13 +67,13 @@ public class MemberServiceImpl extends BaseService implements MemberService {
     private MemberMapper memberMapper;
     @Autowired
     private RedisUtil redisUtil;
-    //@Autowired
+    @Autowired
     private  MsgProducer MsgProducer;
 
     @Autowired
     private HbaseTemplate hbaseTemplate;
 
-    //@Autowired
+    @Autowired
     private FastDFSClient fastDFSClient;
     @Value("${dfs.client.host}")
     private String dfsHost;

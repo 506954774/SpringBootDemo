@@ -16,8 +16,8 @@ import static com.ilinklink.spring_boot.ServerConstants.LOGGER_PREFIX;
  * Copyright : 2014-2018 深圳令令科技有限公司-版权所有
  **/
 @Slf4j
-//@Component
-//@RabbitListener(queues = RabbitConfig.QUEUE_A)
+@Component
+@RabbitListener(queues = RabbitConfig.QUEUE_A)
 public class MsgReceiver2 {
 
     @RabbitHandler

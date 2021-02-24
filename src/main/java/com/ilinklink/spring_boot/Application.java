@@ -92,7 +92,7 @@ public class Application {
     }
 
 
-    //@Bean
+    @Bean
     FastDFSClient fastDFSClient() {
         logger.info(ServerConstants.LOGGER_PREFIX + "FastDFSClient配置文件[" + dfsClientPath + "].");
         try {

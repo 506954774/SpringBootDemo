@@ -106,11 +106,11 @@
 
 
         <!-- fastdfs -->
-        <!-- <dependency>
+        <dependency>
              <groupId>org.csource</groupId>
-             <artifactId>fastdfs-client</artifactId>
+             <artifactId>fastdfs_client</artifactId>
              <version>v1.20</version>
-         </dependency>-->
+         </dependency>
       <!--  <dependency>
             <groupId>org.csource</groupId>
             <artifactId>fastdfs-client-java</artifactId>

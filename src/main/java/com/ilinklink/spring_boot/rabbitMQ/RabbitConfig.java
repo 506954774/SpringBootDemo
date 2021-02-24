@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Scope;
  * 创建/修改时间: 2020/1/11  15:37
  * Copyright : 2014-2018 深圳令令科技有限公司-版权所有
  **/
-//@Configuration
+@Configuration
 public class RabbitConfig {
 
 
@@ -51,7 +51,7 @@ public class RabbitConfig {
     public static final String   ROUTINGKEY_B = "spring-boot-routingKey_B";
     public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
 
-    ///@Bean
+    @Bean
     public CachingConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host,port);
         connectionFactory.setUsername(username);
@@ -61,8 +61,8 @@ public class RabbitConfig {
         return connectionFactory;
     }
 
-    //@Bean
-    //@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     //必须是prototype类型
     public RabbitTemplate rabbitTemplate() {
         RabbitTemplate template = new RabbitTemplate(connectionFactory());
@@ -79,7 +79,7 @@ public class RabbitConfig {
      DirectExchange:按照routingkey分发到指定队列
      TopicExchange:多关键字匹配
      */
-    //@Bean
+    @Bean
     public DirectExchange defaultExchange() {
         return new DirectExchange(EXCHANGE_A);
     }
@@ -93,7 +93,7 @@ public class RabbitConfig {
      DirectExchange:按照routingkey分发到指定队列
      TopicExchange:多关键字匹配
      */
-    //@Bean
+    @Bean
     public DirectExchange exchangeB() {
         return new DirectExchange(EXCHANGE_B);
     }
@@ -103,7 +103,7 @@ public class RabbitConfig {
      * 获取队列A
      * @return
      */
-    //@Bean
+    @Bean
     public  org.springframework.amqp.core.Queue queueA() {
         return new  org.springframework.amqp.core.Queue(QUEUE_A, true); //队列持久
     }
@@ -111,25 +111,25 @@ public class RabbitConfig {
      * 获取队列B
      * @return
      */
-    //@Bean
+    @Bean
     public  org.springframework.amqp.core.Queue queueB() {
         return new  org.springframework.amqp.core.Queue(QUEUE_B, true); //队列持久
     }
 
 
-    //@Bean
+    @Bean
     public Binding binding() {
         //return BindingBuilder.bind(queueA()).to(fanoutExchange());
         return BindingBuilder.bind(queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
     }
-   //@Bean
+   @Bean
     public Binding bindingB(){
         //return BindingBuilder.bind(queueB()).to(fanoutExchange());
         return BindingBuilder.bind(queueB()).to(exchangeB()).with(RabbitConfig.ROUTINGKEY_B);
     }
 
    //配置fanout_exchange
-   // @Bean
+    @Bean
     FanoutExchange fanoutExchange() {
         return new FanoutExchange(RabbitConfig.FANOUT_EXCHANGE);
     }
