@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.hadoop.hbase.HbaseTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -73,12 +74,14 @@ public class AopServiceImpl extends BaseService implements AopService {
 
     @Override
     @NeedSetVaule
+    @Transactional
     public OrderVo query() throws AdminException {
 
         log.error("user:{}",memberMapper.queryUser("15262592514"));
 
         OrderVo vo=new OrderVo();
-        
+
+
         vo.setOrderId("1");
         vo.setUserId("15262592514");
         //vo.setCustmerName(""); //这一步不手动做，使用aop实现：

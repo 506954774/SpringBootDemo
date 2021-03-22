@@ -2,6 +2,7 @@ package com.ilinklink.spring_boot.mapper;
 
 import com.ilinklink.spring_boot.aop.UserInfo;
 
+import com.ilinklink.spring_boot.model.PtMemberInfo;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -25,5 +26,17 @@ public interface MemberMapper {
      */
     UserInfo queryUser(@Param("memberId") String memberId);
 
+    /**
+     * 插入会员信息
+     * @param params
+     */
+    void insert(PtMemberInfo params);
+
+
+    /**
+     * 插入会员信息
+     * @param params
+     */
+    void insert2(PtMemberInfo params);
 
 }
