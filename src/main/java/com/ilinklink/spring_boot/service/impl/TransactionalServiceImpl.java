@@ -1,7 +1,9 @@
 package com.ilinklink.spring_boot.service.impl;
+import java.security.AccessControlException;
 import java.util.Date;
 
 import com.ilinklink.spring_boot.aop.OrderVo;
+import com.ilinklink.spring_boot.aop.UserInfo;
 import com.ilinklink.spring_boot.aop.setValue.NeedSetVaule;
 import com.ilinklink.spring_boot.exception.AdminException;
 import com.ilinklink.spring_boot.mapper.MemberMapper;
@@ -76,9 +78,15 @@ public class TransactionalServiceImpl extends BaseService implements Transaction
         member1.setUTime(new Date());
         memberMapper.insert(member1);
 
-        if(1==12){
-            throw new BadSqlGrammarException("","",null);
+        UserInfo no1 = memberMapper.queryUser("no1");
+
+        log.info("抛出异常之前,查一次第一条数据{}",no1);
+
+
+        if(1==1){
+            throw new RuntimeException("人为制造异常" );
         }
+
 
         PtMemberInfo member2=new PtMemberInfo();
         member2.setMemberId("no2");
