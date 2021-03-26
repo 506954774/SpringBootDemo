@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RedisLockServiceImpl  implements RedisLockService {
 
+    
     @Override
     @RedisDistributedLock(
             idIndex = 0, fieldName = "goodsSkuId",

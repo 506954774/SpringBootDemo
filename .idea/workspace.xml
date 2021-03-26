@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0992a5ca-429c-47c9-a81a-3129c373ed79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/model/SeckillParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLockHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/RedisLockService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/TransactionalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/TransactionalServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/ServerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/ServerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisClusterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisClusterServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,12 +298,17 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\chuck\workspace\SpringBootDemo\src\main\lib" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ilinklink.spring_boot.action" />
+      <recent name="com.ilinklink.spring_boot.service" />
+      <recent name="com.ilinklink.spring_boot.redis_distributed_lock" />
       <recent name="com.ilinklink.spring_boot.model" />
       <recent name="com.ilinklink.spring_boot.service.impl" />
     </key>
@@ -328,13 +340,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -426,7 +440,8 @@
       <workItem from="1615797756158" duration="782000" />
       <workItem from="1615876407557" duration="774000" />
       <workItem from="1615952092485" duration="594000" />
-      <workItem from="1616379660569" duration="6914000" />
+      <workItem from="1616379660569" duration="7538000" />
+      <workItem from="1616741884443" duration="10369000" />
     </task>
     <task id="LOCAL-00001" summary="1，把dfs的jar包移到lib里；2，注释掉rabitmq和fastDfs的逻辑，避免启动失败">
       <created>1613216656713</created>
@@ -456,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616398059293</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=":art: transactional失效问题">
+      <created>1616487938356</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616487938356</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
