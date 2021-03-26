@@ -34,6 +34,11 @@ public class ServerExceptionHandler extends BaseAction {
         if (exception instanceof AdminException) {
             return new ResponseEntity(AdminErrorCode.PERMISSION_REQUIRED, false, getMessage(AdminErrorCode.PERMISSION_REQUIRED));
         }
+        //全局错误
+        if (exception instanceof RuntimeException) {
+            RuntimeException runtimeException= (RuntimeException) exception;
+            return new ResponseEntity(runtimeException.getMessage(), false, runtimeException.getMessage());
+        }
 
         log.error(LOGGER_PREFIX+"异常!"+ exception.getMessage());
 
