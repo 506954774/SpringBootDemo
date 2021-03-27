@@ -21,7 +21,6 @@ public class RedisLockServiceImpl  implements RedisLockService {
 
     @Override
     @RedisDistributedLock(
-            redisTemplateBean=RedisTemplate.class,
             idIndex = 0, fieldName = "goodsSkuId",
             redisKeyPrefix = "GOODS_SECKILL_",redisKeySuffix = "",
             lockTime = 20000L,
