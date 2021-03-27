@@ -21,9 +21,10 @@ public class RedisLockServiceImpl  implements RedisLockService {
 
     @Override
     @RedisDistributedLock(
+            redisTemplateBean=RedisTemplate.class,
             idIndex = 0, fieldName = "goodsSkuId",
             redisKeyPrefix = "GOODS_SECKILL_",redisKeySuffix = "",
-            lockTime = 10000L,
+            lockTime = 20000L,
             blockingHint = "当前访问人数较多,请稍后再试!"
     )
     public String seckill(SeckillParams params) throws RuntimeException {

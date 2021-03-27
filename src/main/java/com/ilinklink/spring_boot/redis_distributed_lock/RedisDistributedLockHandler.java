@@ -42,16 +42,13 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     @Around(value = "@annotation(redisDistributedLock)")
     public Object redisLock(ProceedingJoinPoint jp, RedisDistributedLock redisDistributedLock) throws Exception{
 
-        try {
-             Object result=null;
+        String blockingHint = redisDistributedLock.blockingHint();//阻塞时报错
 
-             String blockingHint = redisDistributedLock.blockingHint();//阻塞时报错
+        try {
+                Object result=null;
 
                 //框架拿到的入参集合
                 Object[] args = jp.getArgs();
@@ -62,7 +59,7 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
                 }
                 else{
                     //从IOC容器中获取redisTemplateBean
-                    //RedisTemplate redisTemplate = (RedisTemplate) this.applicationContext.getBean(redisDistributedLock.redisTemplateBean());
+                    RedisTemplate redisTemplate = (RedisTemplate) this.applicationContext.getBean(redisDistributedLock.redisTemplateBean());
 
                     //入参中,哪个参数里包含了id
                     int idIndex = redisDistributedLock.idIndex();
@@ -75,7 +72,7 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
                     //redis锁的过期时间
                     long lockTime = redisDistributedLock.lockTime();
 
-                    //储存id,格式 {前缀}id{后缀}
+                    //储存id,格式 {前缀}id{后缀},例如:xiangqi_goods_id_007
                     StringBuilder stringBuilder=new StringBuilder();
 
                     if(idIndex>=0&&idIndex<args.length){
@@ -100,8 +97,11 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
                             //加上UUID,自己上的锁只能自己解开
                             String value= UUID.randomUUID().toString();
 
+                            log.info( TAG+"分布式redisKey:{}", redisKey);
+
+
                             //设置分布式锁,key是锁id,value是当前应用进程标识,lockTime后自动删除.lockTime内能把业务做完,则不会有任何问题
-                            boolean notBlocking=redisTemplate.opsForValue().setIfAbsent(redisKey,value,lockTime, TimeUnit.MILLISECONDS);
+                            boolean notBlocking=((ValueOperations<String, String>)redisTemplate.opsForValue()).setIfAbsent(redisKey,value,lockTime, TimeUnit.MILLISECONDS);
 
                             if(!notBlocking){
                                 log.warn( TAG+blockingHint);
@@ -124,7 +124,7 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
                                 if(value.equals(vopt.get(redisKey))){
                                     //不论过程如何,最后把锁删掉
                                     redisTemplate.delete(redisKey);
-                                    log.warn(TAG + "释放分布式锁,value:" + value);
+                                    log.info(TAG + "释放分布式锁,value:" + value);
                                 }
                             }
 
@@ -141,7 +141,8 @@ public class RedisDistributedLockHandler implements ApplicationContextAware {
                 }
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error( TAG+"异常:"+ Arrays.toString(e.getStackTrace()));
+            throw new RuntimeException(blockingHint);
         }
 
     }
