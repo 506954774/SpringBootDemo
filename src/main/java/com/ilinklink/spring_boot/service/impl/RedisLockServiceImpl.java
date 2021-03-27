@@ -28,7 +28,7 @@ public class RedisLockServiceImpl  implements RedisLockService {
     )
     public String seckill(SeckillParams params) throws RuntimeException {
 
-        log.info("id为{}的商品,抢到了锁");
+        log.info("抢到了id为{}的商品",params.getGoodsSkuId());
         try {
             Thread.sleep(8000L);
         } catch (InterruptedException e) {
