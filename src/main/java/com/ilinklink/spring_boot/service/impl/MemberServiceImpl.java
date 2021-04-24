@@ -73,7 +73,7 @@ public class MemberServiceImpl extends BaseService implements MemberService {
     @Autowired
     private HbaseTemplate hbaseTemplate;
 
-    @Autowired
+    //@Autowired
     private FastDFSClient fastDFSClient;
     @Value("${dfs.client.host}")
     private String dfsHost;

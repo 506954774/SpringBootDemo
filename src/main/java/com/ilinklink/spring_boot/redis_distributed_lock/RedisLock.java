@@ -17,12 +17,13 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RedisDistributedLock {
+public @interface RedisLock {
+    String[] keys() default "";//分布式锁的key,唯一性,格式类似mybatis的参数,例如: #params.id
     Class<?> redisTemplateBean() default RedisTemplate.class;//redisTemplate实例,最好自己通过@Configration和@Bean提供bean,如果直接用容器的,可能导致报错
-    String redisKeyPrefix();//key的前缀
-    int idIndex();//入参中携带id的参数的位置,实际项目里,多参数的方法里,此值表示哪个参数里可以获取id
-    String fieldName();//参数中表示id的成员变量的名字,为空则表示参数本身,例如String,Long,int类型的参数,本身就可以是id
-    String redisKeySuffix();//key的后缀
+    String redisKeyPrefix() default "";//key的前缀
+    String redisKeySuffix() default "";//key的后缀
     long lockTime() default 10000L;//锁的时间,到期自动释放,单位毫秒
+    long waitTime() default 2000L;//等待时间,单位毫秒
+    int retryCountThreshold() default 1;//重试阈值
     String blockingHint() default "当前访问人数较多,请稍后再试!";//阻塞时的提示信息
 }

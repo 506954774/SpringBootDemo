@@ -1,13 +1,12 @@
 package com.ilinklink.spring_boot;
 
+import com.chuck.framework.redis_distributed_lock.EnableRedisDistributedLock;
 import com.ilinklink.spring_boot.upload.FastDFSClient;
-
+import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -16,20 +15,19 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-
-import java.util.Locale;
-
-import io.swagger.annotations.ApiOperation;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Locale;
 
 @SpringBootApplication
 @ServletComponentScan
 @EnableTransactionManagement
 @EnableSwagger2
 @EnableScheduling
+@EnableRedisDistributedLock
 public class Application {
 
 

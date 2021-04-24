@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0992a5ca-429c-47c9-a81a-3129c373ed79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/model/SeckillParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLockHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/RedisLockService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" afterDir="false" />
+    <list default="true" id="0992a5ca-429c-47c9-a81a-3129c373ed79" name="Default Changelist" comment=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/ServerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/ServerExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisClusterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisClusterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisLockHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,17 +288,19 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1613642123859" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringCloudDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../com-chuck-lock" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -306,11 +310,11 @@
       <recent name="F:\chuck\workspace\SpringBootDemo\src\main\lib" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ilinklink.spring_boot.config" />
       <recent name="com.ilinklink.spring_boot.action" />
       <recent name="com.ilinklink.spring_boot.service" />
       <recent name="com.ilinklink.spring_boot.redis_distributed_lock" />
       <recent name="com.ilinklink.spring_boot.model" />
-      <recent name="com.ilinklink.spring_boot.service.impl" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application (1)">
@@ -441,7 +445,12 @@
       <workItem from="1615876407557" duration="774000" />
       <workItem from="1615952092485" duration="594000" />
       <workItem from="1616379660569" duration="7538000" />
-      <workItem from="1616741884443" duration="10369000" />
+      <workItem from="1616741884443" duration="19993000" />
+      <workItem from="1616913497818" duration="8266000" />
+      <workItem from="1617000496659" duration="1478000" />
+      <workItem from="1617329894174" duration="14283000" />
+      <workItem from="1618994105867" duration="10026000" />
+      <workItem from="1619233706061" duration="7398000" />
     </task>
     <task id="LOCAL-00001" summary="1，把dfs的jar包移到lib里；2，注释掉rabitmq和fastDfs的逻辑，避免启动失败">
       <created>1613216656713</created>
@@ -478,7 +487,49 @@
       <option name="project" value="LOCAL" />
       <updated>1616487938356</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=":art: redis实现分布式锁,场景:秒杀抢购">
+      <created>1616752789883</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616752789883</updated>
+    </task>
+    <task id="LOCAL-00007" summary=":art: AOP + redis实现分布式锁,场景:秒杀抢购">
+      <created>1616752823309</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616752823309</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":art: AOP + redis实现分布式锁,场景:秒杀抢购">
+      <created>1616753024627</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1616753024627</updated>
+    </task>
+    <task id="LOCAL-00009" summary=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex">
+      <created>1616819606920</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1616819606920</updated>
+    </task>
+    <task id="LOCAL-00010" summary=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex">
+      <created>1616819717645</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616819717645</updated>
+    </task>
+    <task id="LOCAL-00011" summary=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex">
+      <created>1616828238068</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616828238068</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -564,7 +615,21 @@
     <MESSAGE value="恢复rabbitMq相关逻辑" />
     <MESSAGE value=":clown_face: 测试gitMoji" />
     <MESSAGE value=":art: transactional失效问题" />
-    <option name="LAST_COMMIT_MESSAGE" value=":art: transactional失效问题" />
+    <MESSAGE value=":art: redis实现分布式锁,场景:秒杀抢购" />
+    <MESSAGE value=":art: AOP + redis实现分布式锁,场景:秒杀抢购" />
+    <MESSAGE value=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex" />
+    <option name="LAST_COMMIT_MESSAGE" value=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisLockHandler.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">

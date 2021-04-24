@@ -1,10 +1,9 @@
 package com.ilinklink.spring_boot.service.impl;
 
 import com.ilinklink.spring_boot.model.SeckillParams;
-import com.ilinklink.spring_boot.redis_distributed_lock.RedisDistributedLock;
+import com.ilinklink.spring_boot.redis_distributed_lock.RedisLock;
 import com.ilinklink.spring_boot.service.RedisLockService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,17 +19,18 @@ public class RedisLockServiceImpl  implements RedisLockService {
 
 
     @Override
-    @RedisDistributedLock(
-            idIndex = 0, fieldName = "goodsSkuId",
-            redisKeyPrefix = "GOODS_SECKILL_",redisKeySuffix = "",
+    @RedisLock(
+            keys = {"#params.goodsSkuId"},
+            redisKeyPrefix = "GOODS_SECKILL_",
             lockTime = 20000L,
-            blockingHint = "当前访问人数较多,请稍后再试!"
+            waitTime= 3000L,
+            blockingHint = "当前抢购人数太多,请稍后再试!"
     )
     public String seckill(SeckillParams params) throws RuntimeException {
 
         log.info("抢到了id为{}的商品",params.getGoodsSkuId());
         try {
-            Thread.sleep(8000L);
+            Thread.sleep(1500L);
         } catch (InterruptedException e) {
         }
         return "抢购成功!";
