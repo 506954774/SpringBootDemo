@@ -28,19 +28,8 @@ public class RedisDistributedLockAction extends ServerExceptionHandler{
 
     public static final String TAG="秒杀-";
 
-    @Autowired
-    private RedisLockService redisLockService;
-
-  /*  @ApiOperation(value = "测试分布式锁(商品秒杀抢购场景)", notes = "测试分布式锁(商品秒杀抢购场景)")
-    @PostMapping("/secskill/local")
-    public ResponseEntity reduceInventory(@RequestBody SeckillParams params) {
-        try {
-            String seckill = redisLockService.seckill(params);
-            return new ResponseEntity<String>(seckill, true, null);
-        } catch (AdminException e) {
-            return new ResponseEntity<String>(" ", false, e.getMessage());
-        }
-    }*/
+    //库存
+    private int stock=10;
 
 
     @RedisDistributedLock(
@@ -50,21 +39,44 @@ public class RedisDistributedLockAction extends ServerExceptionHandler{
             lockTime = 20000L,
             //并发时,等待获取锁的时间,毫秒
             waitTime= 3000L,
+            retryCountThreshold=100,
             //报错提示,将以RuntimeException的形式抛出
             blockingHint = "当前抢购人数太多,请稍后再试!"
     )
     @ApiOperation(value = "测试分布式锁(商品秒杀抢购场景)", notes = "测试分布式锁(商品秒杀抢购场景)")
     @PostMapping("/secskill")
     public ResponseEntity reduceInventory2(@RequestBody SeckillParams params) {
+        if(stock==0){
+            return new ResponseEntity<String>("000000", true, "库存不足!!");
+        }
         log.info("抢到了id为{}的商品",params.getGoodsSkuId());
         try {
             Thread.sleep(1500L);//模拟耗时操作
+            stock--;
+            log.info("更新库存:{}",stock);
         } catch (InterruptedException e) {
         }
         return new ResponseEntity<String>("000000", true, "抢购成功!");
     }
 
 
+  /*
+
+    @Autowired
+    private RedisLockService redisLockService;
+
+    @ApiOperation(value = "测试分布式锁(商品秒杀抢购场景)", notes = "测试分布式锁(商品秒杀抢购场景)")
+    @PostMapping("/secskill/local")
+    public ResponseEntity reduceInventory(@RequestBody SeckillParams params) {
+        try {
+            String seckill = redisLockService.seckill(params);
+            return new ResponseEntity<String>(seckill, true, null);
+        } catch (AdminException e) {
+            return new ResponseEntity<String>(" ", false, e.getMessage());
+        }
+    }
+
+   */
 
 
 }

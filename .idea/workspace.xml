@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0992a5ca-429c-47c9-a81a-3129c373ed79" name="Default Changelist" comment=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="0992a5ca-429c-47c9-a81a-3129c373ed79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/action/RedisDistributedLockAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisDistributedLockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/redis_distributed_lock/RedisLockHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ilinklink/spring_boot/service/impl/RedisLockServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,19 +335,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -450,7 +428,8 @@
       <workItem from="1617000496659" duration="1478000" />
       <workItem from="1617329894174" duration="14283000" />
       <workItem from="1618994105867" duration="10026000" />
-      <workItem from="1619233706061" duration="7398000" />
+      <workItem from="1619233706061" duration="8079000" />
+      <workItem from="1619425438113" duration="3287000" />
     </task>
     <task id="LOCAL-00001" summary="1，把dfs的jar包移到lib里；2，注释掉rabitmq和fastDfs的逻辑，避免启动失败">
       <created>1613216656713</created>
@@ -529,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616828238068</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=":art: 引入分布式锁">
+      <created>1619262665362</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1619262665362</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -618,7 +604,8 @@
     <MESSAGE value=":art: redis实现分布式锁,场景:秒杀抢购" />
     <MESSAGE value=":art: AOP + redis实现分布式锁,场景:秒杀抢购" />
     <MESSAGE value=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex" />
-    <option name="LAST_COMMIT_MESSAGE" value=":art: @Configration@Bean,提供redisTemplate实例,并指定序列化,使redisTop工具看到的不再是hex" />
+    <MESSAGE value=":art: 引入分布式锁" />
+    <option name="LAST_COMMIT_MESSAGE" value=":art: 引入分布式锁" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
