@@ -1,5 +1,7 @@
 package com.ilinklink.spring_boot.extendsTest;
 
+import java.util.Hashtable;
+
 /**
  * Test
  * 责任人:  Chuck
@@ -10,6 +12,10 @@ package com.ilinklink.spring_boot.extendsTest;
 public class Test {
 
     public static void main(String[] args) {
+        Hashtable<String,String> table=new Hashtable<>();
+        table.put("a","b");
+        System.out.println(table.get("a"));
+        new B();
         new B();
     }
 }

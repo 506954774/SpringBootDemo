@@ -68,6 +68,7 @@ public class Application {
 
         logger.info("**********************************************************************");
         logger.info("启动服务...");
+
         SpringApplication.run(Application.class, args);
         logger.info("启动服务完成。");
         logger.info("**********************************************************************");
